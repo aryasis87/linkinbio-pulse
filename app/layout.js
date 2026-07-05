@@ -4,10 +4,10 @@ import "./globals.css";
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", weight: ["400", "500", "700"] });
 const jbmono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbmono", weight: ["400", "700"] });
 
-const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Raka Wijaya","jobTitle":"Motion & Visual Designer","url":"https://linkinbio-pulse.vercel.app","inLanguage":"id"}};
+const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Raka Wijaya","jobTitle":"Motion & Visual Designer","url":"https://pulse.pintuweb.com","inLanguage":"id"}};
 
 export const metadata = {
-  metadataBase: new URL("https://linkinbio-pulse.vercel.app"),
+  metadataBase: new URL("https://pulse.pintuweb.com"),
   title: "PULSE — Raka Wijaya, Motion Designer",
   description: "Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.",
   applicationName: "PULSE",
@@ -15,11 +15,11 @@ export const metadata = {
   authors: [{ name: "PULSE" }],
   creator: "PULSE",
   publisher: "PULSE",
-  alternates: { canonical: "https://linkinbio-pulse.vercel.app" },
+  alternates: { canonical: "https://pulse.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://linkinbio-pulse.vercel.app",
+    url: "https://pulse.pintuweb.com",
     siteName: "PULSE",
     title: "PULSE — Raka Wijaya, Motion Designer",
     description: "Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.",
