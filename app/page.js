@@ -1,111 +1,72 @@
 'use client';
-
-import { useState, useEffect } from 'react';
-import {
-  Moon, Sun, Globe, Briefcase, Instagram, Mail, Github, Twitter
-} from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+
+const LINKS = [
+  { no: '001', label: 'SHOWREEL 2026', meta: '2 menit — motion & 3D', url: '#' },
+  { no: '002', label: 'BEHANCE', meta: 'studi kasus lengkap', url: 'https://behance.net' },
+  { no: '003', label: 'INSTAGRAM', meta: 'eksperimen harian', url: 'https://instagram.com' },
+  { no: '004', label: 'TOOLKIT & PRESET', meta: 'AE / Blender — gratis', url: '#' },
+  { no: '005', label: 'HIRE ME', meta: 'slot Q3 terbuka', url: 'mailto:raka@pulse.studio' },
+];
+
+const item = {
+  hidden: { opacity: 0, y: 26 },
+  show: (i) => ({ opacity: 1, y: 0, transition: { delay: 0.15 + i * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] } }),
+};
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-  }, [dark]);
-
-  const links = [
-    { icon: <Globe size={18} />, label: 'Website', url: 'https://sanzy.dev' },
-    { icon: <Briefcase size={18} />, label: 'Portfolio', url: 'https://dribbble.com/sanzy' },
-    { icon: <Instagram size={18} />, label: 'Instagram', url: 'https://instagram.com/sanzy' },
-    { icon: <Mail size={18} />, label: 'Contact Me', url: 'https://wa.me/6281234567890' },
-  ];
-
-  const socials = [
-    { icon: <Github size={18} />, url: 'https://github.com/sanzy' },
-    { icon: <Twitter size={18} />, url: 'https://twitter.com/sanzy' },
-  ];
-
   return (
-    <main className="relative min-h-screen flex items-center justify-center px-4 bg-gray-100 dark:bg-zinc-900 transition-colors duration-500 overflow-hidden">
+    <main className="relative min-h-screen px-6 py-10 md:px-14">
+      <div className="scanlines" aria-hidden="true" />
 
-      {/* GLOW BACKGROUND */}
-      <div className="absolute w-[600px] h-[600px] bg-purple-500/20 blur-3xl rounded-full -top-40 -left-40 pointer-events-none animate-pulse" />
-      <div className="absolute w-[400px] h-[400px] bg-sky-400/20 blur-2xl rounded-full top-1/2 right-[-150px] pointer-events-none" />
+      {/* Header meta */}
+      <motion.header initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">
+        <span>PULSE® / link.index</span>
+        <span className="flex items-center gap-2"><span className="pulse-dot inline-block h-2 w-2 rounded-full bg-[#d3ff3d]" /> open for work</span>
+      </motion.header>
 
-      {/* THIN ABSTRACT SHAPES */}
-      <div className="absolute top-10 left-10 w-32 h-32 border border-dashed border-gray-300 dark:border-zinc-700 rounded-full opacity-40 pointer-events-none animate-spin-slow" />
-      <div className="absolute bottom-20 right-10 w-24 h-24 border border-gray-300 dark:border-zinc-700 rotate-12 opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 w-40 h-40 border border-dotted border-gray-300 dark:border-zinc-700 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none rounded-xl" />
+      {/* Identitas */}
+      <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mt-14 md:mt-20">
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/45">Raka Wijaya — Jakarta</p>
+        <h1 className="mt-3 text-6xl font-bold uppercase leading-[0.9] md:text-8xl">
+          Motion<br /><span className="neon-lime">Designer</span>
+        </h1>
+        <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/55">
+          Membuat merek bergerak: title sequence, brand motion system, dan visual 3D yang berdenyut.
+        </p>
+      </motion.section>
 
-      {/* DOT PATTERN */}
-      <svg className="absolute inset-0 w-full h-full opacity-10 dark:opacity-5 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="1" fill="currentColor" className="text-gray-300 dark:text-zinc-700" />
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
+      {/* Link rows raksasa */}
+      <nav className="mt-14 border-t border-white/10 md:mt-20" aria-label="Tautan utama">
+        {LINKS.map((l, i) => (
+          <motion.a
+            key={l.no}
+            href={l.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            custom={i}
+            initial="hidden"
+            animate="show"
+            variants={item}
+            whileHover="hover"
+            className="group flex items-center gap-5 border-b border-white/10 py-5 md:gap-8 md:py-6"
+          >
+            <span className="font-mono text-[11px] text-white/30 transition group-hover:text-[#d3ff3d]">{l.no}</span>
+            <motion.span variants={{ hover: { x: 14, skewX: -6 } }} transition={{ type: 'spring', stiffness: 300, damping: 22 }} className="flex-1 font-display text-3xl font-bold uppercase tracking-tight transition group-hover:neon-lime group-hover:text-[#d3ff3d] md:text-5xl">
+              {l.label}
+            </motion.span>
+            <span className="hidden font-mono text-[11px] uppercase tracking-wide text-white/35 sm:block">{l.meta}</span>
+            <ArrowUpRight size={22} className="shrink-0 text-white/25 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#d3ff3d]" />
+          </motion.a>
+        ))}
+      </nav>
 
-      {/* CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        whileHover={{ scale: 1.01 }}
-        className="relative z-10 max-w-md w-full text-center space-y-6 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md p-6 rounded-xl shadow-xl border border-white/20 dark:border-zinc-700 transition-all duration-300"
-      >
-        {/* Theme Toggle */}
-        <button
-          onClick={() => setDark(!dark)}
-          className="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white transition"
-          aria-label="Toggle theme"
-        >
-          {dark ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
-
-        {/* Avatar */}
-        <motion.img
-          whileHover={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 0.6 }}
-          src="https://i.pravatar.cc/150?img=32"
-          alt="Profile"
-          className="w-24 h-24 rounded-full mx-auto shadow-lg border-4 border-white dark:border-zinc-700"
-        />
-
-        {/* Name & Bio */}
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">NamaAnda</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Programmer • Builder of Web Wonders 🚀</p>
-        </div>
-
-        {/* Link Buttons */}
-        <div className="space-y-3">
-          {links.map(({ icon, label, url }, idx) => (
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              key={idx}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/90 dark:bg-zinc-700 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-600 font-medium shadow transition duration-300"
-            >
-              {icon} {label}
-            </motion.a>
-          ))}
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex justify-center space-x-4 pt-2">
-          {socials.map(({ icon, url }, idx) => (
-            <a key={idx} href={url} target="_blank" className="text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white transition">
-              {icon}
-            </a>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <p className="text-xs text-gray-400 dark:text-gray-500 pt-6">Made with ❤️ by Sanzystore • © 2025</p>
-      </motion.div>
+      {/* Footer */}
+      <motion.footer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="mt-10 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/35">
+        <span>© {new Date().getFullYear()} pulse.studio</span>
+        <span>AE · C4D · Blender · Rive</span>
+      </motion.footer>
     </main>
   );
 }

@@ -1,36 +1,28 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: var(--font-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+:root { color-scheme: dark; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0c;
+  color: #f2f2f5;
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* tambahkan ke globals.css */
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.03em; }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
+/* Scanline halus */
+.scanlines { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.05;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, #fff 2px 3px); }
+
+.neon-lime { color: #d3ff3d; text-shadow: 0 0 24px rgba(211, 255, 61, 0.45); }
+
+@keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.7); opacity: 0.4; } }
+.pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+:focus-visible { outline: 2px solid #d3ff3d; outline-offset: 3px; }
