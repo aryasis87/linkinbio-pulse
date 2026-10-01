@@ -1,12 +1,12 @@
-# PULSE — Raka Wijaya, Motion Designer
+# Raka Wijaya — Motion Designer
 
-Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.
+Tautan Raka Wijaya, motion designer di Jakarta: lembar cue showreel 2026 yang bisa digeser, enam proyek, rate card, ketersediaan, dan formulir brief.
 
 **Demo live:** https://linkinbio-pulse.vercel.app
 
 ![Tangkapan layar PULSE](public/og.jpg)
 
-> Template link-in-bio dengan persona fiktif.
+> Template link-in-bio dengan persona fiktif. Akun, klien, harga, dan jadwal hanya contoh; tautan utama menuju halaman dalam yang benar-benar ada, dan formulir tidak mengirim data.
 
 ## Konsep
 
@@ -14,7 +14,9 @@ Persona Raka Wijaya, motion designer. Baris tautan tipografi neon berukuran raks
 
 ## Halaman
 
-`/`
+- `/` — baris tautan raksasa bernomor yang miring saat disorot, judul neon lime, scanline
+- `/showreel` — lembar cue showreel 2 menit dengan penggeser timecode, daftar proyek
+- `/hire` — rate card, ketersediaan per bulan, formulir brief
 
 ## Teknologi
 

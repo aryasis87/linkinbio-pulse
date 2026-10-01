@@ -8,10 +8,10 @@ const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEnt
 
 export const metadata = {
   metadataBase: new URL("https://linkinbio-pulse.vercel.app"),
-  title: "PULSE — Raka Wijaya, Motion Designer",
-  description: "Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.",
+  title: { default: "Raka Wijaya — Motion Designer", template: "%s — Raka Wijaya" },
+  description: "Tautan Raka Wijaya, motion designer di Jakarta: lembar cue showreel 2026 yang bisa digeser, enam proyek, rate card, ketersediaan, dan formulir brief.",
   applicationName: "PULSE",
-  keywords: ["link in bio", "motion designer", "visual designer", "showreel", "portfolio"],
+  keywords: ["motion designer jakarta", "showreel", "title sequence", "brand motion", "link in bio motion designer"],
   authors: [{ name: "PULSE" }],
   creator: "PULSE",
   publisher: "PULSE",
@@ -21,14 +21,14 @@ export const metadata = {
     locale: "id_ID",
     url: "https://linkinbio-pulse.vercel.app",
     siteName: "PULSE",
-    title: "PULSE — Raka Wijaya, Motion Designer",
-    description: "Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "PULSE — Raka Wijaya, Motion Designer" }],
+    title: "Raka Wijaya — Motion Designer",
+    description: "Tautan Raka Wijaya, motion designer di Jakarta: lembar cue showreel 2026 yang bisa digeser, enam proyek, rate card, ketersediaan, dan formulir brief.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Raka Wijaya — Motion Designer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PULSE — Raka Wijaya, Motion Designer",
-    description: "Link in bio motion & visual designer Raka Wijaya: showreel, karya, dan kontak — semuanya di sini.",
+    title: "Raka Wijaya — Motion Designer",
+    description: "Tautan Raka Wijaya, motion designer di Jakarta: lembar cue showreel 2026 yang bisa digeser, enam proyek, rate card, ketersediaan, dan formulir brief.",
     images: ["/og.jpg"],
   },
   robots: {
